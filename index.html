@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aegis Recourse | Professional Crypto & Asset Recovery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:       #0B1426;
+  --navy-2:     #0F1C35;
+  --navy-3:     #152240;
+  --navy-4:     #1C2D52;
+  --slate:      #8A9BB8;
+  --slate-light:#B8C5D9;
+  --white:      #EEF2F8;
+  --platinum:   #C8D4E8;
+  --accent:     #1D6FA4;
+  --accent-2:   #2589C4;
+  --teal:       #0E8A7A;
+  --teal-light: #13B09E;
+  --border:     rgba(200,212,232,0.12);
+  --border-2:   rgba(200,212,232,0.06);
+}
+
+- { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:‘DM Sans’,sans-serif; background:var(–navy); color:var(–white); overflow-x:hidden; font-weight:300; }
+  ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(–navy-2)}::-webkit-scrollbar-thumb{background:var(–accent);border-radius:3px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;background:rgba(11,20,38,0.96);backdrop-filter:blur(24px);border-bottom:1px solid var(–border)}
+.logo-wrap{display:flex;align-items:center;gap:14px;text-decoration:none}
+.logo-mark{width:40px;height:40px;flex-shrink:0}
+.logo-mark svg{width:40px;height:40px}
+.logo-text-block{display:flex;flex-direction:column;line-height:1.1}
+.logo-name{font-family:‘Cormorant Garamond’,serif;font-size:1.22rem;font-weight:600;color:var(–white);letter-spacing:0.12em;text-transform:uppercase}
+.logo-sub{font-family:‘DM Mono’,monospace;font-size:0.52rem;color:var(–accent-2);letter-spacing:0.22em;text-transform:uppercase;margin-top:3px}
+.nav-links{display:flex;align-items:center;gap:34px;list-style:none}
+.nav-links a{font-size:0.78rem;font-weight:500;color:var(–slate);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(–white)}
+.nav-cta{background:var(–accent)!important;color:var(–white)!important;padding:9px 22px!important;border-radius:3px;transition:background .2s!important}
+.nav-cta:hover{background:var(–accent-2)!important}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:70px}
+.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 80% 60% at 70% 50%,rgba(29,111,164,0.15) 0%,transparent 65%),radial-gradient(ellipse 50% 40% at 20% 80%,rgba(14,138,122,0.08) 0%,transparent 60%),linear-gradient(160deg,var(–navy) 0%,var(–navy-2) 60%,#0A1830 100%)}
+.hero-lines{position:absolute;inset:0;z-index:1;overflow:hidden}
+.hero-lines svg{width:100%;height:100%;opacity:0.07}
+.hero-content{position:relative;z-index:2;padding:0 6%;max-width:820px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:‘DM Mono’,monospace;font-size:0.68rem;color:var(–teal-light);letter-spacing:0.22em;text-transform:uppercase;margin-bottom:30px;opacity:0;animation:fadeUp .8s .2s forwards}
+.hero-eyebrow::before{content:’’;width:32px;height:1px;background:var(–teal-light)}
+.hero h1{font-family:‘Cormorant Garamond’,serif;font-size:clamp(3rem,6vw,5.2rem);font-weight:300;line-height:1.06;letter-spacing:-0.01em;margin-bottom:28px;opacity:0;animation:fadeUp .9s .35s forwards}
+.hero h1 strong{font-weight:600;font-style:italic;color:var(–platinum)}
+.hero h1 em{font-style:italic;color:var(–slate-light)}
+.hero-lead{font-size:1.05rem;font-weight:300;color:var(–slate-light);line-height:1.75;max-width:560px;margin-bottom:44px;opacity:0;animation:fadeUp .9s .5s forwards}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeUp .9s .65s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+.btn-primary{display:inline-flex;align-items:center;gap:9px;background:var(–accent);color:var(–white);padding:14px 30px;border:none;border-radius:3px;font-family:‘DM Sans’,sans-serif;font-size:0.82rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s;box-shadow:0 8px 28px rgba(29,111,164,0.35)}
+.btn-primary:hover{background:var(–accent-2);transform:translateY(-2px);box-shadow:0 12px 36px rgba(29,111,164,0.5)}
+.btn-ghost{display:inline-flex;align-items:center;gap:9px;background:transparent;color:var(–slate-light);padding:14px 30px;border:1px solid rgba(200,212,232,0.25);border-radius:3px;font-family:‘DM Sans’,sans-serif;font-size:0.82rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:border-color .2s,color .2s}
+.btn-ghost:hover{border-color:var(–platinum);color:var(–white)}
+
+/* METRICS */
+.metrics{background:var(–navy-2);border-top:1px solid var(–border);border-bottom:1px solid var(–border);padding:0 6%;display:flex;justify-content:space-around}
+.metric{padding:32px 20px;text-align:center;border-right:1px solid var(–border-2);flex:1}
+.metric:last-child{border-right:none}
+.metric-val{display:block;font-family:‘Cormorant Garamond’,serif;font-size:2.2rem;font-weight:600;color:var(–white);letter-spacing:-0.02em;line-height:1;margin-bottom:6px}
+.metric-val span{color:var(–accent-2)}
+.metric-label{font-family:‘DM Mono’,monospace;font-size:0.62rem;color:var(–slate);letter-spacing:0.18em;text-transform:uppercase}
+
+/* SECTIONS */
+section{padding:96px 6%}
+.label-tag{display:inline-flex;align-items:center;gap:10px;font-family:‘DM Mono’,monospace;font-size:0.64rem;color:var(–teal-light);letter-spacing:0.22em;text-transform:uppercase;margin-bottom:16px}
+.label-tag::before{content:’’;width:20px;height:1px;background:var(–teal-light)}
+.section-title{font-family:‘Cormorant Garamond’,serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:400;line-height:1.1;letter-spacing:-0.01em;margin-bottom:16px;color:var(–white)}
+.section-title strong{font-weight:600;font-style:italic}
+.section-desc{font-size:1rem;font-weight:300;color:var(–slate-light);line-height:1.75;max-width:560px}
+
+/* SERVICES */
+.services{background:var(–navy-2)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:60px;border:1px solid var(–border);border-radius:6px;overflow:hidden}
+.svc-card{background:var(–navy-3);padding:38px 32px;position:relative;transition:background .25s;text-decoration:none;color:inherit;display:block;border-right:1px solid var(–border);border-bottom:1px solid var(–border)}
+.svc-card:hover{background:var(–navy-4)}
+.svc-card::after{content:’’;position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(–accent),var(–teal));transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-num{font-family:‘DM Mono’,monospace;font-size:0.62rem;color:var(–accent-2);letter-spacing:0.15em;margin-bottom:20px;display:block}
+.svc-icon{font-size:1.6rem;margin-bottom:16px;display:block}
+.svc-card h3{font-family:‘Cormorant Garamond’,serif;font-size:1.25rem;font-weight:600;color:var(–white);margin-bottom:12px;line-height:1.2}
+.svc-card p{font-size:0.88rem;font-weight:300;color:var(–slate-light);line-height:1.7;margin-bottom:22px}
+.svc-link{font-family:‘DM Mono’,monospace;font-size:0.65rem;color:var(–accent-2);letter-spacing:0.15em;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
+.svc-card:hover .svc-link{gap:10px}
+
+/* PROCESS */
+.process{background:var(–navy)}
+.process-track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:64px;position:relative}
+.process-track::before{content:’’;position:absolute;top:28px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(90deg,transparent,var(–accent),var(–teal),transparent)}
+.proc-step{text-align:center;padding:0 16px}
+.proc-dot{width:56px;height:56px;border-radius:50%;background:var(–navy-2);border:1px solid rgba(200,212,232,0.2);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;position:relative;z-index:1;transition:border-color .2s,background .2s}
+.proc-dot:hover{border-color:var(–accent);background:var(–navy-3)}
+.proc-num{font-family:‘Cormorant Garamond’,serif;font-size:1.3rem;font-weight:600;color:var(–accent-2)}
+.proc-step h4{font-family:‘Cormorant Garamond’,serif;font-size:1.05rem;font-weight:600;color:var(–white);margin-bottom:10px}
+.proc-step p{font-size:0.85rem;font-weight:300;color:var(–slate);line-height:1.65}
+
+/* TRUST */
+.trust{background:var(–navy-2)}
+.trust-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-top:60px}
+.trust-visual{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tv-block{background:var(–navy-3);border:1px solid var(–border);border-radius:5px;padding:28px 22px;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.tv-block:first-child{grid-column:span 2;padding:32px 28px}
+.tv-icon{font-size:1.8rem}
+.tv-title{font-family:‘Cormorant Garamond’,serif;font-size:0.95rem;font-weight:600;color:var(–platinum);letter-spacing:0.04em}
+.tv-sub{font-size:0.78rem;color:var(–slate);font-weight:300}
+.trust-list{list-style:none}
+.trust-list li{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(–border-2)}
+.trust-list li:last-child{border-bottom:none}
+.tl-icon{width:26px;height:26px;border-radius:50%;border:1px solid rgba(29,111,164,0.4);background:rgba(29,111,164,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:0.65rem;color:var(–accent-2)}
+.tl-text strong{display:block;font-size:0.9rem;font-weight:500;color:var(–white);margin-bottom:4px}
+.tl-text span{font-size:0.84rem;font-weight:300;color:var(–slate);line-height:1.6}
+
+/* TESTIMONIALS */
+.testimonials{background:var(–navy)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+.testi-card{background:var(–navy-2);border:1px solid var(–border);border-radius:5px;padding:32px;position:relative}
+.testi-card::before{content:’\201C’;font-family:‘Cormorant Garamond’,serif;font-size:6rem;line-height:1;color:var(–accent);opacity:0.12;position:absolute;top:12px;right:20px}
+.testi-stars{color:var(–accent-2);font-size:0.75rem;margin-bottom:14px;letter-spacing:2px}
+.testi-card p{font-size:0.9rem;font-weight:300;color:var(–slate-light);line-height:1.75;margin-bottom:22px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:12px}
+.ta-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(–accent),var(–teal));display:flex;align-items:center;justify-content:center;font-family:‘Cormorant Garamond’,serif;font-size:0.95rem;font-weight:600;color:var(–white)}
+.ta-name{font-size:0.88rem;font-weight:500;color:var(–white)}
+.ta-role{font-size:0.75rem;font-weight:300;color:var(–slate)}
+
+/* INSIGHTS */
+.insights{background:var(–navy-2)}
+.insights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+.ins-card{background:var(–navy-3);border:1px solid var(–border);border-radius:5px;overflow:hidden;text-decoration:none;color:inherit;display:block;transition:transform .25s,box-shadow .25s,border-color .25s}
+.ins-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(11,20,38,0.5);border-color:rgba(29,111,164,0.35)}
+.ins-thumb{height:160px;display:flex;align-items:center;justify-content:center;font-size:2.8rem}
+.ins-body{padding:22px 22px 26px}
+.ins-tag{font-family:‘DM Mono’,monospace;font-size:0.6rem;color:var(–teal-light);letter-spacing:0.18em;text-transform:uppercase;display:block;margin-bottom:10px}
+.ins-card h4{font-family:‘Cormorant Garamond’,serif;font-size:1.1rem;font-weight:600;color:var(–white);line-height:1.3;margin-bottom:10px}
+.ins-card p{font-size:0.83rem;font-weight:300;color:var(–slate);line-height:1.65;margin-bottom:16px}
+.ins-footer{display:flex;justify-content:space-between;align-items:center}
+.ins-date{color:var(–slate);font-family:‘DM Mono’,monospace;font-size:0.72rem}
+.ins-read{color:var(–accent-2);font-weight:500;display:flex;align-items:center;gap:4px;font-size:0.72rem}
+.load-more-row{text-align:center;margin-top:46px}
+
+/* FORM */
+.form-section{background:var(–navy-3);border-top:1px solid var(–border)}
+.form-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:72px;margin-top:56px}
+.form-aside h3{font-family:‘Cormorant Garamond’,serif;font-size:1.5rem;font-weight:400;color:var(–white);margin-bottom:16px}
+.form-aside p{font-size:0.9rem;font-weight:300;color:var(–slate);line-height:1.75;margin-bottom:28px}
+.wa-panel{background:var(–navy-2);border:1px solid var(–border);border-radius:5px;padding:22px;display:flex;align-items:center;gap:16px}
+.wa-bubble{width:46px;height:46px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.wa-txt h5{font-size:0.9rem;font-weight:500;color:var(–white);margin-bottom:3px}
+.wa-txt p{font-size:0.82rem;font-weight:300;color:var(–slate);margin:0}
+.wa-txt a{color:var(–accent-2)}
+.recovery-form{background:var(–navy-2);border:1px solid var(–border);border-radius:6px;padding:40px}
+.recovery-form h3{font-family:‘Cormorant Garamond’,serif;font-size:1.3rem;font-weight:600;color:var(–accent-2);margin-bottom:28px;padding-bottom:18px;border-bottom:1px solid var(–border)}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.f-group{margin-bottom:16px}
+.f-group label{display:block;font-family:‘DM Mono’,monospace;font-size:0.6rem;color:var(–slate);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px}
+.f-group input,.f-group select,.f-group textarea{width:100%;background:var(–navy-3);border:1px solid rgba(200,212,232,0.15);border-radius:4px;padding:11px 14px;color:var(–white);font-family:‘DM Sans’,sans-serif;font-size:0.9rem;font-weight:300;transition:border-color .2s;outline:none}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{border-color:var(–accent)}
+.f-group input::placeholder,.f-group textarea::placeholder{color:var(–slate);opacity:0.6}
+.f-group textarea{height:110px;resize:vertical}
+.f-group select option{background:var(–navy-3)}
+.f-submit{width:100%;background:var(–accent);color:var(–white);border:none;border-radius:4px;padding:14px;font-family:‘DM Sans’,sans-serif;font-size:0.82rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .2s,transform .2s;box-shadow:0 6px 24px rgba(29,111,164,0.3)}
+.f-submit:hover{background:var(–accent-2);transform:translateY(-1px)}
+.f-note{text-align:center;font-size:0.75rem;font-weight:300;color:var(–slate);margin-top:12px}
+
+/* CONTACT */
+.contact-section{background:var(–navy-2);padding:72px 6%}
+.contact-wrap{max-width:700px;margin:0 auto;text-align:center}
+.contact-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+.contact-tile{background:var(–navy-3);border:1px solid var(–border);border-radius:5px;padding:26px 30px;text-align:center;flex:1;min-width:190px;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
+.contact-tile:hover{border-color:rgba(29,111,164,0.45);transform:translateY(-4px)}
+.ct-icon{font-size:1.7rem;margin-bottom:10px}
+.ct-label{font-family:‘DM Mono’,monospace;font-size:0.6rem;color:var(–teal-light);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:6px}
+.ct-val{font-size:0.85rem;font-weight:300;color:var(–slate-light)}
+
+/* FOOTER */
+footer{background:var(–navy);border-top:1px solid var(–border)}
+.footer-main{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:44px;padding:56px 6% 40px}
+.f-brand p{font-size:0.85rem;font-weight:300;color:var(–slate);line-height:1.75;margin:16px 0 22px;max-width:270px}
+.f-contacts{display:flex;flex-direction:column;gap:10px}
+.f-contact-link{display:flex;align-items:center;gap:9px;font-size:0.83rem;font-weight:300;color:var(–slate);text-decoration:none;transition:color .2s}
+.f-contact-link:hover{color:var(–platinum)}
+.f-col h5{font-family:‘DM Mono’,monospace;font-size:0.6rem;color:var(–accent-2);letter-spacing:0.22em;text-transform:uppercase;margin-bottom:18px}
+.f-col ul{list-style:none}
+.f-col li{margin-bottom:10px}
+.f-col a{font-size:0.85rem;font-weight:300;color:var(–slate);text-decoration:none;transition:color .2s}
+.f-col a:hover{color:var(–white)}
+.footer-bottom{border-top:1px solid var(–border-2);padding:20px 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.footer-bottom p{font-size:0.76rem;font-weight:300;color:var(–slate);font-family:‘DM Mono’,monospace}
+.footer-legal{display:flex;gap:22px}
+.footer-legal a{font-size:0.76rem;font-weight:300;color:var(–slate);text-decoration:none;font-family:‘DM Mono’,monospace;transition:color .2s}
+.footer-legal a:hover{color:var(–white)}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(7,12,22,0.9);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal-box{background:var(–navy-2);border:1px solid rgba(200,212,232,0.16);border-radius:8px;max-width:760px;width:100%;max-height:88vh;overflow-y:auto;position:relative;animation:modalIn .3s ease}
+@keyframes modalIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.modal-x{position:absolute;top:18px;right:18px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.06);border:none;cursor:pointer;color:var(–slate);font-size:0.95rem;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.modal-x:hover{background:rgba(255,255,255,0.12)}
+.modal-hd{padding:38px 40px 26px;border-bottom:1px solid var(–border)}
+.modal-hd-icon{font-size:2.2rem;margin-bottom:14px;display:block}
+.modal-hd h2{font-family:‘Cormorant Garamond’,serif;font-size:2rem;font-weight:400;color:var(–white);margin-bottom:8px}
+.modal-hd .modal-sub{font-family:‘DM Mono’,monospace;font-size:0.65rem;color:var(–teal-light);letter-spacing:0.18em;text-transform:uppercase}
+.modal-bd{padding:30px 40px 38px}
+.modal-bd h3{font-family:‘Cormorant Garamond’,serif;font-size:1.2rem;font-weight:600;color:var(–accent-2);margin:26px 0 10px}
+.modal-bd h3:first-child{margin-top:0}
+.modal-bd p{font-size:0.92rem;font-weight:300;color:var(–slate-light);line-height:1.78;margin-bottom:12px}
+.modal-bd ul{list-style:none;margin-bottom:14px}
+.modal-bd ul li{font-size:0.91rem;font-weight:300;color:var(–slate-light);line-height:1.7;padding:5px 0 5px 20px;position:relative}
+.modal-bd ul li::before{content:’›’;position:absolute;left:0;color:var(–accent-2);font-size:1rem}
+.modal-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+
+/* PROMO */
+.promo-strip{background:linear-gradient(135deg,rgba(29,111,164,0.15),rgba(14,138,122,0.1));border:1px solid rgba(29,111,164,0.25);border-radius:6px;padding:40px 44px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;margin:0 6% 64px}
+.promo-strip h3{font-family:‘Cormorant Garamond’,serif;font-size:1.6rem;font-weight:400;color:var(–white)}
+.promo-strip p{font-size:0.9rem;color:var(–slate);margin-top:4px}
+
+/* TOAST */
+.toast{position:fixed;bottom:28px;right:28px;z-index:3000;background:var(–navy-3);border:1px solid rgba(14,138,122,0.45);border-radius:6px;padding:16px 22px;display:flex;align-items:center;gap:13px;box-shadow:0 8px 36px rgba(11,20,38,0.6);transform:translateY(80px);opacity:0;transition:all .4s cubic-bezier(.16,1,.3,1);max-width:360px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast-ico{font-size:1.4rem}
+.toast h5{font-size:0.9rem;font-weight:500;color:var(–white);margin-bottom:2px}
+.toast p{font-size:0.78rem;font-weight:300;color:var(–slate);margin:0}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:28px;left:28px;z-index:999;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:1.55rem;box-shadow:0 4px 20px rgba(37,211,102,0.4);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 8px 28px rgba(37,211,102,0.55)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){.services-grid{grid-template-columns:1fr 1fr}.trust-inner{grid-template-columns:1fr}.footer-main{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.nav-links{display:none}.services-grid{grid-template-columns:1fr}.process-track{grid-template-columns:1fr 1fr}.process-track::before{display:none}.testi-grid{grid-template-columns:1fr}.insights-grid{grid-template-columns:1fr}.form-layout{grid-template-columns:1fr}.footer-main{grid-template-columns:1fr}.hero h1{font-size:2.8rem}}
+@media(max-width:540px){.f-row{grid-template-columns:1fr}.metrics{flex-direction:column}.metric{border-right:none;border-bottom:1px solid var(–border-2)}}
+</style>
+
+</head>
+<body>
+
+<a href="https://wa.me/15857592760?text=Hello%20Aegis%20Recourse%2C%20I%20need%20help%20recovering%20my%20crypto%20assets." class="wa-float" target="_blank">💬</a>
+
+<nav>
+  <a href="#" class="logo-wrap">
+    <div class="logo-mark">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="20,3 36,11 36,29 20,37 4,29 4,11" stroke="#C8D4E8" stroke-width="1.2" fill="rgba(29,111,164,0.08)"/>
+        <polygon points="20,8 31,14 31,26 20,32 9,26 9,14" stroke="#1D6FA4" stroke-width="1" fill="rgba(29,111,164,0.06)"/>
+        <circle cx="20" cy="20" r="5.5" fill="none" stroke="#2589C4" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="2.5" fill="#2589C4"/>
+        <line x1="20" y1="3"  x2="20" y2="8"  stroke="#C8D4E8" stroke-width="0.8" opacity="0.5"/>
+        <line x1="20" y1="32" x2="20" y2="37" stroke="#C8D4E8" stroke-width="0.8" opacity="0.5"/>
+        <line x1="4"  y1="11" x2="9"  y2="14" stroke="#C8D4E8" stroke-width="0.8" opacity="0.5"/>
+        <line x1="36" y1="11" x2="31" y2="14" stroke="#C8D4E8" stroke-width="0.8" opacity="0.5"/>
+      </svg>
+    </div>
+    <div class="logo-text-block">
+      <span class="logo-name">Aegis Recourse</span>
+      <span class="logo-sub">Certified Asset Recovery</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#insights">Insights</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#recover" class="nav-cta">Start Recovery</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-lines">
+    <svg viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice">
+      <defs><linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1D6FA4"/><stop offset="100%" stop-color="#0E8A7A"/></linearGradient></defs>
+      <polygon points="800,0 1400,200 1400,800 1000,800" stroke="url(#lg1)" stroke-width="1" fill="none"/>
+      <polygon points="900,0 1400,100 1400,600 1100,800" stroke="url(#lg1)" stroke-width="0.5" fill="none"/>
+      <circle cx="1200" cy="400" r="280" stroke="url(#lg1)" stroke-width="0.5" fill="none"/>
+      <circle cx="1200" cy="400" r="180" stroke="url(#lg1)" stroke-width="0.4" fill="none"/>
+      <circle cx="1200" cy="400" r="80" stroke="url(#lg1)" stroke-width="0.6" fill="none"/>
+      <line x1="1200" y1="120" x2="1200" y2="680" stroke="url(#lg1)" stroke-width="0.4"/>
+      <line x1="920" y1="400" x2="1480" y2="400" stroke="url(#lg1)" stroke-width="0.4"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Trusted by 8,400+ clients worldwide</div>
+    <h1>Recover Your<br><strong>Lost Crypto</strong><br>&amp; <em>Digital Assets</em></h1>
+    <p class="hero-lead">Aegis Recourse is a certified professional asset recovery firm — combining blockchain forensics, cybersecurity intelligence, and legal authority to pursue every avenue to reclaim what is yours.</p>
+    <div class="hero-actions">
+      <a href="#recover" class="btn-primary">Start Your Recovery</a>
+      <a href="#services" class="btn-ghost">View Services →</a>
+    </div>
+  </div>
+</section>
+
+<div class="metrics">
+  <div class="metric"><span class="metric-val">$247<span>M+</span></span><span class="metric-label">Assets Recovered</span></div>
+  <div class="metric"><span class="metric-val">8,400<span>+</span></span><span class="metric-label">Cases Resolved</span></div>
+  <div class="metric"><span class="metric-val">96<span>%</span></span><span class="metric-label">Recovery Rate</span></div>
+  <div class="metric"><span class="metric-val">48<span>h</span></span><span class="metric-label">Avg Response</span></div>
+  <div class="metric"><span class="metric-val">40<span>+</span></span><span class="metric-label">Countries Served</span></div>
+</div>
+
+<section class="services" id="services">
+  <div class="label-tag">What We Do</div>
+  <h2 class="section-title">Comprehensive <strong>Recovery Services</strong></h2>
+  <p class="section-desc">From lost wallet credentials to sophisticated exchange hacks, our certified specialists deploy forensic tools to track and recover your digital assets.</p>
+  <div class="services-grid">
+    <a class="svc-card" href="javascript:void(0)" onclick="openModal('wallet')"><span class="svc-num">01 — WALLET RECOVERY</span><span class="svc-icon">🔑</span><h3>Wallet Recovery</h3><p>Lost access to your crypto wallet? Our blockchain forensics team recovers wallets with missing private keys, corrupted files, or forgotten passphrases across all major protocols.</p><span class="svc-link">Learn More →</span></a>
+    <a class="svc-card" href="javascript:void(0)" onclick="openModal('password')"><span class="svc-num">02 — PASSWORD RECOVERY</span><span class="svc-icon">🔓</span><h3>Password Recovery</h3><p>Forgotten passwords to wallets, exchanges, and crypto platforms. Advanced cryptographic techniques to restore your access without compromising security.</p><span class="svc-link">Learn More →</span></a>
+    <a class="svc-card" href="javascript:void(0)" onclick="openModal('hacked')"><span class="svc-num">03 — HACKED ACCOUNT</span><span class="svc-icon">🛡️</span><h3>Hacked Account Recovery</h3><p>Compromised exchange or wallet? Our cybersecurity team responds immediately — tracing transactions, freezing assets where possible, and recovering stolen funds.</p><span class="svc-link">Learn More →</span></a>
+    <a class="svc-card" href="javascript:void(0)" onclick="openModal('exchange')"><span class="svc-num">04 — EXCHANGE RECOVERY</span><span class="svc-icon">🏦</span><h3>Exchange Recovery</h3><p>Funds stuck, frozen, or lost on exchanges? We liaise with exchange legal teams, provide forensic evidence, and advocate vigorously on your behalf.</p><span class="svc-link">Learn More →</span></a>
+    <a class="svc-card" href="javascript:void(0)" onclick="openModal('hardware')"><span class="svc-num">05 — HARDWARE WALLET</span><span class="svc-icon">💾</span><h3>Hardware Wallet Recovery</h3><p>Damaged, wiped, or malfunctioning Ledger, Trezor, or other hardware wallets. Proprietary chip-level extraction techniques restore your access.</p><span class="svc-link">Learn More →</span></a>
+    <a class="svc-card" href="javascript:void(0)" onclick="openModal('mobile')"><span class="svc-num">06 — MOBILE WALLET</span><span class="svc-icon">📱</span><h3>Mobile Wallet Recovery</h3><p>Lost, broken, or factory-reset phones with mobile wallets. Advanced device forensics and blockchain analysis to recover your mobile crypto holdings.</p><span class="svc-link">Learn More →</span></a>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="label-tag">How It Works</div>
+  <h2 class="section-title">Our <strong>Recovery Process</strong></h2>
+  <p class="section-desc">A structured, transparent process designed to maximise your chances of full recovery.</p>
+  <div class="process-track">
+    <div class="proc-step"><div class="proc-dot"><span class="proc-num">01</span></div><h4>Free Consultation</h4><p>Submit your case details. Our specialists assess feasibility at no cost and provide an honest evaluation.</p></div>
+    <div class="proc-step"><div class="proc-dot"><span class="proc-num">02</span></div><h4>Case Investigation</h4><p>Our forensics team conducts deep blockchain analysis, tracing transactions and identifying recovery vectors.</p></div>
+    <div class="proc-step"><div class="proc-dot"><span class="proc-num">03</span></div><h4>Recovery Execution</h4><p>Deploying legal, technical, and forensic methods simultaneously to secure and retrieve your assets.</p></div>
+    <div class="proc-step"><div class="proc-dot"><span class="proc-num">04</span></div><h4>Asset Return</h4><p>Recovered assets are securely transferred to your verified wallet with full documentation provided.</p></div>
+  </div>
+</section>
+
+<section class="trust" id="about-preview">
+  <div class="label-tag">Why Choose Us</div>
+  <h2 class="section-title">Built on <strong>Expertise &amp; Integrity</strong></h2>
+  <div class="trust-inner">
+    <div class="trust-visual">
+      <div class="tv-block"><span class="tv-icon">🏢</span><span class="tv-title">Global Headquarters</span><span class="tv-sub">New York · London · Singapore</span></div>
+      <div class="tv-block"><span class="tv-icon">👨‍💻</span><span class="tv-title">Forensics Team</span><span class="tv-sub">140+ certified specialists</span></div>
+      <div class="tv-block"><span class="tv-icon">⚖️</span><span class="tv-title">Legal Partners</span><span class="tv-sub">12 jurisdictions covered</span></div>
+    </div>
+    <div>
+      <ul class="trust-list">
+        <li><div class="tl-icon">✓</div><div class="tl-text"><strong>Board-Certified Blockchain Forensics</strong><span>CCFE and CFCE certified analysts with 60+ combined years of digital asset recovery experience.</span></div></li>
+        <li><div class="tl-icon">✓</div><div class="tl-text"><strong>Legal &amp; Regulatory Partnerships</strong><span>Working alongside law firms, regulatory bodies, and international cybercrime units globally.</span></div></li>
+        <li><div class="tl-icon">✓</div><div class="tl-text"><strong>End-to-End Confidentiality</strong><span>Every case is handled under strict NDA with military-grade secure communications.</span></div></li>
+        <li><div class="tl-icon">✓</div><div class="tl-text"><strong>Transparent Pricing</strong><span>Detailed cost breakdown before any work begins. No hidden charges, no surprises.</span></div></li>
+        <li><div class="tl-icon">✓</div><div class="tl-text"><strong>Global Reach — 40+ Countries</strong><span>Our international network enables pursuit of cases across multiple jurisdictions simultaneously.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="testimonials">
+  <div class="label-tag">Success Stories</div>
+  <h2 class="section-title">Clients Who Got Their <strong>Assets Back</strong></h2>
+  <div class="testi-grid">
+    <div class="testi-card"><div class="testi-stars">★ ★ ★ ★ ★</div><p>I lost access to my Ledger wallet holding 4.7 BTC after a firmware update corrupted my device. Aegis Recourse recovered every satoshi within 12 days. Absolutely life-changing.</p><div class="testi-author"><div class="ta-avatar">JM</div><div><div class="ta-name">James M.</div><div class="ta-role">Bitcoin holder — USA</div></div></div></div>
+    <div class="testi-card"><div class="testi-stars">★ ★ ★ ★ ★</div><p>My Binance account was hacked and $38,000 in assets were drained. The Aegis team filed emergency requests, traced the wallet, and recovered 85% of my funds. Exceptional work.</p><div class="testi-author"><div class="ta-avatar">AK</div><div><div class="ta-name">Amara K.</div><div class="ta-role">Exchange victim — UK</div></div></div></div>
+    <div class="testi-card"><div class="testi-stars">★ ★ ★ ★ ★</div><p>Thought my MetaMask seed phrase was gone forever after a house fire. Aegis used digital forensics to retrieve an encrypted backup from my old laptop. Unbelievable expertise.</p><div class="testi-author"><div class="ta-avatar">RP</div><div><div class="ta-name">Robert P.</div><div class="ta-role">DeFi investor — Canada</div></div></div></div>
+  </div>
+  <div style="text-align:center;margin-top:36px;"><a href="javascript:void(0)" onclick="openModal('success')" class="btn-ghost">View All Success Stories →</a></div>
+</section>
+
+<section class="insights" id="insights">
+  <div class="label-tag">Knowledge Centre</div>
+  <h2 class="section-title">Security Insights — <strong>2026</strong></h2>
+  <p class="section-desc">Expert analysis, forensic breakdowns, and recovery guides from the Aegis Recourse research team.</p>
+  <div class="insights-grid">
+    <a href="javascript:void(0)" onclick="openModal('article1')" class="ins-card"><div class="ins-thumb" style="background:linear-gradient(140deg,#0b1e38,#1a3a5c)">🔐</div><div class="ins-body"><span class="ins-tag">Wallet Security</span><h4>The 2026 Hardware Wallet Vulnerability Report</h4><p>New firmware vulnerabilities expose millions of users to seed phrase extraction attacks...</p><div class="ins-footer"><span class="ins-date">Jan 15, 2026 · 8 min</span><span class="ins-read">Read Article →</span></div></div></a>
+    <a href="javascript:void(0)" onclick="openModal('article2')" class="ins-card"><div class="ins-thumb" style="background:linear-gradient(140deg,#1e0b0b,#3a1515)">⚠️</div><div class="ins-body"><span class="ins-tag">Threat Intelligence</span><h4>AI-Powered Phishing Attacks at Record Rates in 2026</h4><p>Artificial intelligence is supercharging social engineering attacks on crypto users...</p><div class="ins-footer"><span class="ins-date">Feb 3, 2026 · 6 min</span><span class="ins-read">Read Article →</span></div></div></a>
+    <a href="javascript:void(0)" onclick="openModal('article3')" class="ins-card"><div class="ins-thumb" style="background:linear-gradient(140deg,#0b1e15,#153a22)">🧩</div><div class="ins-body"><span class="ins-tag">Recovery Guide</span><h4>How to Protect Your Seed Phrase: 2026 Security Checklist</h4><p>Seed phrase theft now accounts for 61% of all crypto losses. The definitive protection guide...</p><div class="ins-footer"><span class="ins-date">Feb 20, 2026 · 10 min</span><span class="ins-read">Read Article →</span></div></div></a>
+    <a href="javascript:void(0)" onclick="openModal('article4')" class="ins-card"><div class="ins-thumb" style="background:linear-gradient(140deg,#1a180a,#2e2a0e)">💱</div><div class="ins-body"><span class="ins-tag">Exchange Security</span><h4>3 Major Exchange Failures of 2026 and How Victims Recovered</h4><p>When exchanges collapse, clients believe funds are gone. Case studies show otherwise...</p><div class="ins-footer"><span class="ins-date">Mar 1, 2026 · 9 min</span><span class="ins-read">Read Article →</span></div></div></a>
+    <a href="javascript:void(0)" onclick="openModal('article5')" class="ins-card"><div class="ins-thumb" style="background:linear-gradient(140deg,#0e0b2a,#1a1548)">🕵️</div><div class="ins-body"><span class="ins-tag">Forensics</span><h4>Blockchain Forensics 101: How We Trace Stolen Crypto</h4><p>A behind-the-scenes look at how analysts follow funds through DeFi protocols and mixers...</p><div class="ins-footer"><span class="ins-date">Mar 8, 2026 · 12 min</span><span class="ins-read">Read Article →</span></div></div></a>
+    <a href="javascript:void(0)" onclick="openModal('article6')" class="ins-card"><div class="ins-thumb" style="background:linear-gradient(140deg,#150b2a,#24134a)">📊</div><div class="ins-body"><span class="ins-tag">Industry Report</span><h4>Crypto Crime Report 2026: $14.4 Billion Stolen</h4><p>Annual analysis of global crypto crime trends, emerging vectors, and actionable defences...</p><div class="ins-footer"><span class="ins-date">Mar 10, 2026 · 15 min</span><span class="ins-read">Read Article →</span></div></div></a>
+  </div>
+  <div class="load-more-row"><a href="javascript:void(0)" onclick="openModal('all-articles')" class="btn-ghost">Load More Articles →</a></div>
+</section>
+
+<div class="promo-strip">
+  <div><h3>Free Case Evaluation — No Obligation</h3><p>Receive a confidential expert assessment of your recovery prospects within 24 hours.</p></div>
+  <a href="#recover" class="btn-primary">Get Free Evaluation</a>
+</div>
+
+<section class="form-section" id="recover">
+  <div class="label-tag">Submit Your Case</div>
+  <h2 class="section-title">Start Your <strong>Recovery Today</strong></h2>
+  <p class="section-desc">Complete the form and our team will contact you within 24 hours with a personalised assessment.</p>
+  <div class="form-layout">
+    <div class="form-aside">
+      <h3>What to Expect</h3>
+      <p>After submission, a senior specialist reviews your case within 24 hours and reaches out via your preferred contact method. All information is protected under our strict confidentiality protocol.</p>
+      <p>Our team operates around the clock across multiple time zones to ensure no case goes unattended.</p>
+      <div class="wa-panel">
+        <div class="wa-bubble">💬</div>
+        <div class="wa-txt"><h5>Prefer WhatsApp?</h5><p>Reach us directly at <strong>+1 (585) 759-2760</strong><br><a href="https://wa.me/15857592760?text=Hello%20Aegis%20Recourse%2C%20I%20need%20help%20with%20a%20crypto%20recovery." target="_blank">Open WhatsApp Chat →</a></p></div>
+      </div>
+    </div>
+    <div class="recovery-form">
+      <h3>Recovery Request Form</h3>
+      <div class="f-row">
+        <div class="f-group"><label>First Name *</label><input type="text" id="firstName" placeholder="John"></div>
+        <div class="f-group"><label>Last Name *</label><input type="text" id="lastName" placeholder="Doe"></div>
+      </div>
+      <div class="f-group"><label>Email Address *</label><input type="email" id="email" placeholder="john@example.com"></div>
+      <div class="f-group"><label>Phone / WhatsApp</label><input type="tel" id="phone" placeholder="+1 234 567 8900"></div>
+      <div class="f-group"><label>Recovery Type *</label><select id="recoveryType"><option value="">— Select Recovery Type —</option><option>Wallet Recovery</option><option>Password Recovery</option><option>Hacked Account Recovery</option><option>Exchange Recovery</option><option>Hardware Wallet Recovery</option><option>Mobile Wallet Recovery</option><option>Investment Scam Recovery</option><option>Other</option></select></div>
+      <div class="f-row">
+        <div class="f-group"><label>Amount Lost (approx.)</label><input type="text" id="amount" placeholder="e.g. $5,000 or 0.5 BTC"></div>
+        <div class="f-group"><label>Asset Type</label><select id="assetType"><option value="">— Select —</option><option>Bitcoin (BTC)</option><option>Ethereum (ETH)</option><option>USDT / Stablecoin</option><option>Other Altcoin</option><option>Multiple Assets</option></select></div>
+      </div>
+      <div class="f-group"><label>Describe Your Situation *</label><textarea id="description" placeholder="Please describe what happened, when it occurred, and any relevant details about the assets or accounts involved..."></textarea></div>
+      <button class="f-submit" onclick="submitRecovery()">Submit Recovery Request →</button>
+      <p class="f-note">🔒 Encrypted &amp; strictly confidential. Response within 24 hours.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="contact-wrap">
+    <div class="label-tag" style="justify-content:center">Get In Touch</div>
+    <h2 class="section-title">Contact <strong>Aegis Recourse</strong></h2>
+    <p class="section-desc" style="margin:12px auto 0">Our specialists are available around the clock. Reach out through your preferred channel.</p>
+    <div class="contact-row">
+      <a href="mailto:recover@aegisrecourse.org" class="contact-tile"><div class="ct-icon">✉️</div><div class="ct-label">Email</div><div class="ct-val">recover@aegisrecourse.org</div></a>
+      <a href="https://wa.me/15857592760?text=Hello%20Aegis%20Recourse%2C%20I%20need%20help%20with%20asset%20recovery." target="_blank" class="contact-tile"><div class="ct-icon">💬</div><div class="ct-label">WhatsApp</div><div class="ct-val">+1 (585) 759-2760</div></a>
+      <a href="#recover" class="contact-tile"><div class="ct-icon">📋</div><div class="ct-label">Case Form</div><div class="ct-val">Submit Online</div></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-main">
+    <div class="f-brand">
+      <a href="#" class="logo-wrap">
+        <div class="logo-mark"><svg viewBox="0 0 40 40" fill="none"><polygon points="20,3 36,11 36,29 20,37 4,29 4,11" stroke="#C8D4E8" stroke-width="1.2" fill="rgba(29,111,164,0.08)"/><circle cx="20" cy="20" r="5.5" fill="none" stroke="#2589C4" stroke-width="1.4"/><circle cx="20" cy="20" r="2.5" fill="#2589C4"/></svg></div>
+        <div class="logo-text-block"><span class="logo-name">Aegis Recourse</span><span class="logo-sub">Certified Asset Recovery</span></div>
+      </a>
+      <p>The world's leading certified digital asset recovery firm. Combining blockchain forensics, cybersecurity expertise, and legal authority to recover what is rightfully yours.</p>
+      <div class="f-contacts">
+        <a href="mailto:recover@aegisrecourse.org" class="f-contact-link">✉️ recover@aegisrecourse.org</a>
+        <a href="https://wa.me/15857592760" class="f-contact-link" target="_blank">💬 WhatsApp: +1 (585) 759-2760</a>
+      </div>
+    </div>
+    <div class="f-col"><h5>Services</h5><ul><li><a href="javascript:void(0)" onclick="openModal('wallet')">Wallet Recovery</a></li><li><a href="javascript:void(0)" onclick="openModal('password')">Password Recovery</a></li><li><a href="javascript:void(0)" onclick="openModal('hacked')">Hacked Account Recovery</a></li><li><a href="javascript:void(0)" onclick="openModal('exchange')">Exchange Recovery</a></li><li><a href="javascript:void(0)" onclick="openModal('hardware')">Hardware Wallet Recovery</a></li><li><a href="javascript:void(0)" onclick="openModal('mobile')">Mobile Wallet Recovery</a></li></ul></div>
+    <div class="f-col"><h5>Company</h5><ul><li><a href="javascript:void(0)" onclick="openModal('about')">About Us</a></li><li><a href="javascript:void(0)" onclick="openModal('success')">Success Stories</a></li><li><a href="javascript:void(0)" onclick="openModal('faq')">FAQ</a></li><li><a href="javascript:void(0)" onclick="openModal('blog')">Blog</a></li><li><a href="#contact">Contact</a></li></ul></div>
+    <div class="f-col"><h5>Resources</h5><ul><li><a href="javascript:void(0)" onclick="openModal('article1')">Security Guides</a></li><li><a href="javascript:void(0)" onclick="openModal('article2')">Threat Reports</a></li><li><a href="javascript:void(0)" onclick="openModal('article5')">Forensics 101</a></li><li><a href="#recover">Free Evaluation</a></li><li><a href="#contact">Emergency Support</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Aegis Recourse Ltd. All rights reserved.</p>
+    <div class="footer-legal"><a href="javascript:void(0)" onclick="openModal('privacy')">Privacy Policy</a><a href="javascript:void(0)" onclick="openModal('terms')">Terms of Service</a></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"><div class="toast-ico">✅</div><div><h5>Request Submitted</h5><p>Your case has been sent to WhatsApp. We'll respond within 24h.</p></div></div>
+
+<div class="modal-overlay" id="modalOverlay" onclick="overlayClose(event)">
+  <div class="modal-box" id="modalBox">
+    <button class="modal-x" onclick="closeModal()">✕</button>
+    <div class="modal-hd" id="modalHd"></div>
+    <div class="modal-bd" id="modalBd"></div>
+  </div>
+</div>
+
+<script>
+const MODALS={wallet:{icon:'🔑',title:'Wallet Recovery',sub:'Complete restoration of lost or inaccessible cryptocurrency wallets',body:`<h3>What Is Wallet Recovery?</h3><p>A cryptocurrency wallet stores the private keys that give you access to your digital assets. If you lose these keys — whether through hardware failure, accidental deletion, forgotten passphrases, or corrupted files — you effectively lose access to everything in that wallet. Aegis Recourse specializes in recovering exactly these situations.</p><h3>Common Scenarios We Handle</h3><ul><li>Forgotten wallet passwords or passphrases (BIP39, BIP44)</li><li>Corrupted or partially deleted wallet.dat files</li><li>Wallets created with non-standard derivation paths</li><li>Old Bitcoin Core, Electrum, or Multibit wallets</li><li>Wallets on damaged or failed storage devices</li><li>Seed phrases with missing, unclear, or incorrect words</li><li>Wallets migrated incorrectly between platforms</li></ul><h3>Our Technical Approach</h3><p>Our certified analysts use a combination of cryptographic brute-force techniques, dictionary attacks tailored to your known patterns, blockchain forensics, and proprietary decryption software developed over a decade of recovery work. All operations are performed in an air-gapped, offline environment to ensure your data is never exposed to the internet.</p><h3>Supported Wallet Types</h3><ul><li>Bitcoin Core, Electrum, Multibit Classic/HD</li><li>MetaMask, Trust Wallet, Exodus, Atomic Wallet</li><li>Ledger, Trezor, Coldcard hardware wallets</li><li>Coinbase Wallet, Blockchain.com wallets</li><li>Custom smart contract wallets and multisig setups</li></ul><h3>Success Rate</h3><p>We successfully recover wallets in approximately 94% of cases where we take on the engagement. During your free consultation, we provide an honest probability estimate before any work begins.</p><div class="modal-cta"><a href="#recover" onclick="closeModal()" class="btn-primary">Start Recovery</a><a href="https://wa.me/15857592760?text=Hi%2C%20I%20need%20wallet%20recovery%20help." target="_blank" class="btn-ghost">WhatsApp Us →</a></div>`},password:{icon:'🔓',title:'Password Recovery',sub:'Restoring access to locked wallets, exchanges, and crypto platforms',body:`<h3>What Is Password Recovery?</h3><p>Passwords protect billions of dollars in crypto assets. When forgotten, they can seem like an unbreakable barrier — but our specialists have unlocked thousands of encrypted wallets and platform accounts using legal, ethical, and technically advanced methods.</p><h3>Platforms & Systems We Support</h3><ul><li>Encrypted wallet files (wallet.dat, keystore JSON, vault files)</li><li>Exchange accounts (Binance, Coinbase, Kraken, Bybit, OKX, and more)</li><li>Mobile crypto apps with PIN or biometric locks</li><li>Desktop wallet applications with encrypted databases</li><li>Web3 browser extension wallets</li><li>Cold storage passphrase recovery</li></ul><h3>Our Methodology</h3><p>We begin by gathering everything you remember — partial passwords, patterns you typically use, dates, names, or substitutions. This information forms the basis of a custom-built wordlist. We then deploy GPU-accelerated cracking rigs running at billions of attempts per second, guided by behavioral profiling and intelligent rule sets.</p><h3>Privacy & Security</h3><p>Your wallet files and personal information are handled in a completely offline environment. We never upload your files to cloud services. Every analyst signs a personal NDA before handling your case.</p><div class="modal-cta"><a href="#recover" onclick="closeModal()" class="btn-primary">Start Recovery</a><a href="https://wa.me/15857592760?text=Hi%2C%20I%20need%20password%20recovery%20help." target="_blank" class="btn-ghost">WhatsApp Us →</a></div>`},hacked:{icon:'🛡️',title:'Hacked Account Recovery',sub:'Emergency response and fund recovery for compromised crypto accounts',body:`<h3>What Happens When Your Account Is Hacked?</h3><p>Crypto account hacks move fast. Attackers typically drain wallets within minutes of gaining access, exploit API keys, or take over exchange accounts via SIM swapping or phishing. Time is critical — the sooner you engage Aegis Recourse, the greater your chances of recovery.</p><h3>Types of Hacks We Handle</h3><ul><li>Exchange account takeovers via phishing or credential stuffing</li><li>SIM swap attacks leading to 2FA bypass</li><li>Malware and keylogger-based wallet theft</li><li>Smart contract exploits and DeFi protocol drains</li><li>API key theft and automated trading account attacks</li><li>Clipboard hijacking (address substitution malware)</li><li>Fake wallet apps and browser extension scams</li></ul><h3>Our Emergency Response Process</h3><p><strong style="color:var(--white)">Step 1 — Immediate Containment:</strong> We help you secure remaining assets, revoke compromised API keys, and change access credentials on all linked platforms.</p><p><strong style="color:var(--white)">Step 2 — Forensic Trace:</strong> Using blockchain analytics tools, we trace stolen funds through the blockchain, identifying wallet clusters, exchange deposits, and mixer usage patterns.</p><p><strong style="color:var(--white)">Step 3 — Legal & Exchange Escalation:</strong> Where funds reach a regulated exchange, we submit emergency freeze requests with full forensic documentation.</p><p><strong style="color:var(--white)">Step 4 — Recovery & Restitution:</strong> We coordinate the return of funds, negotiate with exchanges, and where necessary pursue civil and criminal remedies through our law enforcement partnerships.</p><h3>Results</h3><p>In 2025, Aegis Recourse recovered a combined $47 million for hacked account victims. Our average recovery rate for exchange-based hacks stands at 71%.</p><div class="modal-cta"><a href="#recover" onclick="closeModal()" class="btn-primary">Emergency Case</a><a href="https://wa.me/15857592760?text=URGENT%3A%20My%20crypto%20account%20was%20hacked." target="_blank" class="btn-ghost">WhatsApp Emergency →</a></div>`},exchange:{icon:'🏦',title:'Exchange Recovery',sub:'Recovering funds from frozen accounts, collapsed exchanges, and disputes',body:`<h3>The Exchange Recovery Challenge</h3><p>Cryptocurrency exchanges are centralized entities that hold billions in client assets. They can freeze accounts, impose withdrawal limits, go bankrupt, or be hacked. When your funds are locked inside an exchange, standard customer support often fails — you need professionals who know how to navigate the legal and regulatory landscape.</p><h3>Scenarios We Handle</h3><ul><li>Frozen or suspended exchange accounts</li><li>Unresponsive exchange support for large withdrawals</li><li>Funds on collapsed or insolvent exchanges</li><li>AML/KYC disputes and compliance freezes</li><li>Failed or pending crypto deposits that never credited</li><li>Unauthorized chargebacks locking exchange accounts</li></ul><h3>How We Work With Exchanges</h3><p>We have established relationships and direct escalation contacts at over 60 major cryptocurrency exchanges globally. Our compliance specialists understand exchange AML frameworks and can communicate in the language that triggers genuine action.</p><p>For insolvency cases, we register proofs of claim on your behalf, join creditor committees where appropriate, and monitor distributions closely to maximize your recovery percentage.</p><h3>Legal Authority</h3><p>Where administrative routes fail, our affiliated legal firms can issue formal legal notices, apply for injunctions to freeze exchange assets, and pursue claims through financial regulators in the UK (FCA), EU (MiCA), and US (FinCEN/CFTC).</p><div class="modal-cta"><a href="#recover" onclick="closeModal()" class="btn-primary">File Exchange Claim</a><a href="https://wa.me/15857592760?text=Hi%2C%20I%20have%20funds%20stuck%20on%20an%20exchange." target="_blank" class="btn-ghost">WhatsApp Us →</a></div>`},hardware:{icon:'💾',title:'Hardware Wallet Recovery',sub:'Recovering access from damaged, wiped, or malfunctioning hardware wallets',body:`<h3>Hardware Wallet Failures Happen More Than You Think</h3><p>Hardware wallets are considered the gold standard of crypto security — but they are not infallible. Physical damage, firmware corruption, PIN lockouts, and manufacturing defects can all result in complete loss of access. Aegis Recourse has recovered hundreds of millions from seemingly unrecoverable hardware wallet situations.</p><h3>Common Hardware Wallet Issues</h3><ul><li>Device physically damaged (water, fire, crushing, electrical surge)</li><li>PIN forgotten — device locked and approaching wipe threshold</li><li>Firmware update failure bricking the device</li><li>Seed phrase lost but device still functional</li><li>Seed phrase partially damaged or illegible</li><li>Device wiped/reset without backing up seed phrase</li><li>Inherited devices with unknown PIN and no seed phrase</li></ul><h3>Our Hardware Recovery Capabilities</h3><p>Our hardware lab is equipped with specialized tools for non-destructive and microinvasive chip-level data extraction. For devices where the secure element has not been fully wiped, our engineers can often extract encrypted data and work to decrypt it offline.</p><h3>Devices We Support</h3><ul><li>Ledger Nano S, Nano X, Nano S Plus, Stax, Flex</li><li>Trezor Model One, Model T, Safe 3, Safe 5</li><li>Coldcard Mk3, Mk4 · BitBox02 · Keystone · Foundation Passport</li><li>Legacy and discontinued hardware wallet models</li></ul><div class="modal-cta"><a href="#recover" onclick="closeModal()" class="btn-primary">Start Recovery</a><a href="https://wa.me/15857592760?text=Hi%2C%20I%20have%20a%20damaged%20hardware%20wallet%20issue." target="_blank" class="btn-ghost">WhatsApp Us →</a></div>`},mobile:{icon:'📱',title:'Mobile Wallet Recovery',sub:'Restoring access to crypto wallets on lost, broken, or reset mobile devices',body:`<h3>Mobile Wallets and the Risks They Face</h3><p>Millions of people hold significant crypto wealth on mobile wallets — convenient, but vulnerable to phone loss, theft, damage, and accidental factory resets. Without a seed phrase backup, these situations often seem hopeless. Our mobile forensics team has a proven track record of successful recovery.</p><h3>Situations We Recover From</h3><ul><li>Phone lost or stolen with wallet app installed</li><li>Phone screen broken with no backup of seed phrase</li><li>Factory reset performed accidentally or by repair shop</li><li>App deleted without backing up wallet data</li><li>Phone damaged beyond normal repair (water, fire, drop)</li><li>OS upgrade corrupting wallet app data</li></ul><h3>Mobile Forensic Recovery Process</h3><p><strong style="color:var(--white)">Data Extraction:</strong> Using professional mobile forensics tools (Cellebrite UFED, GrayKey, Oxygen Forensic Detective), we attempt to extract a full physical or logical image of your device's storage, even from damaged devices.</p><p><strong style="color:var(--white)">Wallet Data Recovery:</strong> From the device image, we locate wallet application databases, encrypted keystores, and any cached seed phrase fragments that may exist in app data directories.</p><p><strong style="color:var(--white)">Decryption & Reconstruction:</strong> Recovered encrypted data is processed through our decryption pipeline to reconstruct the wallet's private keys directly from the application's local storage.</p><h3>Supported Mobile Wallets</h3><ul><li>Trust Wallet, MetaMask Mobile, Coinbase Wallet</li><li>Exodus, Atomic Wallet, Crypto.com DeFi Wallet</li><li>Blockchain.com Wallet, Phantom, Rainbow, Argent</li></ul><div class="modal-cta"><a href="#recover" onclick="closeModal()" class="btn-primary">Start Recovery</a><a href="https://wa.me/15857592760?text=Hi%2C%20I%20need%20mobile%20wallet%20recovery%20help." target="_blank" class="btn-ghost">WhatsApp Us →</a></div>`},about:{icon:'🏢',title:'About Aegis Recourse',sub:'Who we are and why we exist',body:`<h3>Our Mission</h3><p>Aegis Recourse was founded in 2016 by a team of former cybersecurity intelligence professionals, blockchain engineers, and financial crime investigators who witnessed firsthand how ordinary people lost life-changing sums of money to crypto theft, scams, and technical failures — with nowhere to turn.</p><p>We built Aegis Recourse to be the firm we wished existed: one that combines genuine technical capability with legal authority and ethical integrity. We don't make promises we can't keep — but when we take a case, we pursue every legal avenue until the matter is resolved.</p><h3>Our Team</h3><p>Our 140+ person global team includes certified forensic computer examiners and blockchain forensics specialists, former law enforcement digital crimes investigators (FBI, Europol, NCA), cybersecurity engineers with OSINT and dark web intelligence backgrounds, compliance and legal professionals in 12 jurisdictions, and hardware security researchers and cryptographic engineers.</p><h3>Our Track Record</h3><ul><li>$247M+ in digital assets recovered since 2016</li><li>8,400+ successfully resolved cases across 40+ countries</li><li>96% client satisfaction rate based on post-case surveys</li><li>Partner firm to Interpol's Financial Crime division since 2021</li></ul><h3>Our Values</h3><p><strong style="color:var(--white)">Transparency:</strong> We tell you the honest probability of recovery before accepting your case.</p><p><strong style="color:var(--white)">Confidentiality:</strong> Every engagement is protected by a mutual NDA with bank-level security protocols.</p><p><strong style="color:var(--white)">Integrity:</strong> We operate exclusively within legal boundaries. Our methods are ethical and our clients' interests always come first.</p><div class="modal-cta"><a href="#recover" onclick="closeModal()" class="btn-primary">Work With Us</a><a href="https://wa.me/15857592760" target="_blank" class="btn-ghost">WhatsApp Us →</a></div>`},success:{icon:'🏆',title:'Success Stories',sub:'Real cases. Real recoveries. Real clients.',body:`<h3>James M. — 4.7 BTC Hardware Wallet Recovery (USA, 2025)</h3><p>A firmware update corrupted James's Ledger Nano X, wiping the device. His seed phrase had been stored on paper destroyed in a flood. Our hardware lab performed microinvasive chip analysis and recovered the encrypted seed data directly from the secure element. Full recovery in 12 days.</p><h3>Amara K. — $38,000 Hacked Binance Account (UK, 2025)</h3><p>Amara's Binance account was accessed via a SIM swap attack. $38,000 in assets were transferred out within 4 minutes. Our team traced the funds through three wallet hops to a deposit on a smaller exchange, filed an emergency freeze request, and recovered $32,400 within 3 weeks.</p><h3>Chen W. — $180,000 FTX Creditor Claim (Singapore, 2024)</h3><p>Chen held $180,000 on FTX at the time of its collapse. Our legal team registered his creditor claim, monitored the bankruptcy proceedings, and secured his place in the distribution queue. He received $127,000 across two distributions.</p><h3>Maria L. — Trust Wallet Recovery After Factory Reset (Brazil, 2025)</h3><p>Maria accidentally factory-reset her phone containing a Trust Wallet holding 22 ETH with no seed phrase backup. Our mobile forensics team performed a physical extraction from the device's flash storage and recovered the wallet's private key from an unencrypted cache file. Full recovery in 6 days.</p><h3>David R. — 11-Word Seed Phrase Reconstruction (Australia, 2024)</h3><p>David had a 12-word seed phrase but one word was completely illegible. Our cryptographic team ran a full permutation analysis of BIP39 wordlists against known blockchain transaction patterns and identified the correct word within 8 hours. All funds recovered.</p><div class="modal-cta"><a href="#recover" onclick="closeModal()" class="btn-primary">Start Your Case</a><a href="https://wa.me/15857592760" target="_blank" class="btn-ghost">WhatsApp Us →</a></div>`},faq:{icon:'❓',title:'Frequently Asked Questions',sub:'Everything you need to know about crypto asset recovery',body:`<h3>How do I know if my assets are recoverable?</h3><p>The best way to find out is through our free consultation. We assess your specific situation and provide an honest probability estimate. Many cases that clients believe are hopeless turn out to be recoverable with the right tools and expertise.</p><h3>How much does recovery cost?</h3><p>Our pricing depends on the complexity of the case, the type of recovery required, and the value of assets involved. We provide a detailed cost proposal after the initial consultation. All fees are disclosed upfront — there are never any hidden charges.</p><h3>How long does recovery take?</h3><p>Simple password or seed phrase recoveries can be completed in 24–72 hours. Complex cases involving exchange disputes, legal intervention, or chip-level hardware analysis typically take 2–6 weeks. We provide regular status updates throughout.</p><h3>Is my personal information safe?</h3><p>Absolutely. All client information is handled under a strict NDA, stored in encrypted databases, and is never shared with third parties without explicit consent. Our infrastructure is ISO 27001 certified.</p><h3>Do you operate internationally?</h3><p>Yes. We serve clients in 40+ countries with legal partnerships in the US, UK, EU, Singapore, Australia, and Canada. Cross-border cases are handled with our full international network from day one.</p><h3>What information do I need to provide?</h3><p>For an initial assessment, we need a description of what happened, the type of asset and wallet involved, approximate value, and any partial credentials you have. We never ask for your full seed phrase or private key.</p><h3>What if recovery is not possible?</h3><p>If our specialists determine recovery is not feasible after assessment, we will tell you clearly and not proceed with billing.</p><div class="modal-cta"><a href="#recover" onclick="closeModal()" class="btn-primary">Start Recovery</a><a href="https://wa.me/15857592760" target="_blank" class="btn-ghost">Ask on WhatsApp →</a></div>`},blog:{icon:'📰',title:'Aegis Recourse Blog',sub:'Expert insights on crypto security and asset recovery — 2026',body:`<h3>Latest Articles — March 2026</h3><p><strong style="color:var(--accent-2)">Mar 10, 2026</strong> — <a href="javascript:void(0)" onclick="openModal('article6')" style="color:var(--white)">Crypto Crime Report 2026: $14.4 Billion Stolen</a></p><p><strong style="color:var(--accent-2)">Mar 8, 2026</strong> — <a href="javascript:void(0)" onclick="openModal('article5')" style="color:var(--white)">Blockchain Forensics 101: How We Trace Stolen Crypto</a></p><p><strong style="color:var(--accent-2)">Mar 1, 2026</strong> — <a href="javascript:void(0)" onclick="openModal('article4')" style="color:var(--white)">3 Major Exchange Failures of 2026</a></p><p><strong style="color:var(--accent-2)">Feb 20, 2026</strong> — <a href="javascript:void(0)" onclick="openModal('article3')" style="color:var(--white)">Seed Phrase Security: The 2026 Checklist</a></p><p><strong style="color:var(--accent-2)">Feb 3, 2026</strong> — <a href="javascript:void(0)" onclick="openModal('article2')" style="color:var(--white)">AI-Powered Phishing Attacks at Record Rates</a></p><p><strong style="color:var(--accent-2)">Jan 15, 2026</strong> — <a href="javascript:void(0)" onclick="openModal('article1')" style="color:var(--white)">The 2026 Hardware Wallet Vulnerability Report</a></p><div class="modal-cta"><a href="#recover" onclick="closeModal()" class="btn-primary">Start Recovery</a></div>`},article1:{icon:'🔐',title:'The 2026 Hardware Wallet Vulnerability Report',sub:'What every crypto holder must know — January 2026',body:`<h3>Executive Summary</h3><p>Security researchers at three independent labs published findings in January 2026 identifying previously unknown vulnerabilities in the firmware of multiple popular hardware wallet models. These flaws, if exploited, could allow an attacker with physical access to extract seed phrases from the secure element without triggering a wipe.</p><h3>Affected Devices</h3><p>Users of older firmware versions remain exposed: first-generation hardware wallets manufactured before 2022, devices running firmware versions prior to the latest security updates, and devices that have been opened or tampered with physically.</p><h3>The Nature of the Vulnerability</h3><p>The vulnerability exploits a timing side-channel in the cryptographic comparison function used during PIN verification. By measuring the precise time taken for PIN digit comparisons using specialized equipment, an attacker can infer PIN digits one at a time — dramatically reducing brute-force attempts from millions to under 1,000 in some scenarios.</p><p>A second vulnerability allows fault injection via voltage glitching — brief voltage spikes during cryptographic operations can cause the chip to output unintended data, including partial key material.</p><h3>What You Should Do Immediately</h3><ul><li>Update your hardware wallet firmware to the latest version immediately</li><li>Never allow your device to leave your physical possession</li><li>Do not purchase hardware wallets from third-party resellers — always buy direct from the manufacturer</li><li>Consider moving assets to a new wallet with a freshly generated seed phrase if your device is older than 3 years</li><li>Enable passphrase protection (25th word) for an additional layer of security</li></ul><div class="modal-cta"><a href="#recover" onclick="closeModal()" class="btn-primary">Free Security Consultation</a><a href="https://wa.me/15857592760" target="_blank" class="btn-ghost">WhatsApp Us →</a></div>`},article2:{icon:'⚠️',title:'AI-Powered Phishing Attacks at Record Rates in 2026',sub:'How artificial intelligence is supercharging crypto fraud — February 2026',body:`<h3>A New Era of Phishing</h3><p>Traditional phishing attacks were detectable by poor grammar and generic messaging. In 2026, that advantage is gone. Large language models combined with vast databases of scraped personal data are enabling cybercriminals to craft phishing messages indistinguishable from legitimate communications — personalized to your name, your holdings, and your recent activity.</p><h3>How AI-Powered Attacks Work</h3><p>Modern crypto phishing operations aggregate personal data about targets from social media, leaked databases, and public blockchain data. An AI model then generates a hyper-personalized phishing communication referencing your account balance, recent trades, and personal details, directing you to a pixel-perfect clone website.</p><h3>Emerging Attack Vectors in 2026</h3><ul><li><strong style="color:var(--white)">AI Voice Cloning:</strong> Attackers clone the voice of customer support representatives, making fraudulent phone calls virtually indistinguishable from legitimate support.</li><li><strong style="color:var(--white)">Deepfake Video KYC:</strong> AI-generated video is being used to pass identity verification at exchanges, enabling account takeovers.</li><li><strong style="color:var(--white)">Smart Contract Phishing:</strong> Malicious smart contracts disguised as legitimate DeFi protocols drain wallets on interaction.</li><li><strong style="color:var(--white)">AI-Powered Pig Butchering:</strong> Romance-based investment scams now use AI chatbots that maintain long-term relationships before executing the scam.</li></ul><h3>How to Protect Yourself</h3><ul><li>Never enter your seed phrase anywhere online — legitimate services will never ask for it</li><li>Always navigate to exchange websites by typing the URL directly</li><li>Enable hardware security keys (FIDO2) for exchange 2FA — these are phishing-resistant</li><li>Verify any "support call" by hanging up and calling the official number yourself</li></ul><div class="modal-cta"><a href="#recover" onclick="closeModal()" class="btn-primary">Emergency Consultation</a><a href="https://wa.me/15857592760" target="_blank" class="btn-ghost">WhatsApp Us →</a></div>`},article3:{icon:'🧩',title:'How to Protect Your Seed Phrase: The 2026 Security Checklist',sub:'The definitive guide for every crypto investor — February 2026',body:`<h3>Why Your Seed Phrase Is Everything</h3><p>Your seed phrase is the master key to all of your crypto assets. Anyone who obtains it has complete, permanent, and irreversible access to everything in every wallet derived from it. With seed phrase theft now accounting for 61% of all crypto losses, protecting it is the single most important security measure you can take.</p><h3>The 2026 Seed Phrase Security Checklist</h3><ul><li><strong style="color:var(--white)">Never store it digitally:</strong> Do not type it into any device, ever. No notes apps, no cloud storage, no email drafts, no password managers.</li><li><strong style="color:var(--white)">Use metal, not paper:</strong> Paper is vulnerable to fire, water, and degradation. Engrave your seed phrase into a stainless steel backup plate.</li><li><strong style="color:var(--white)">Use geographic distribution:</strong> Store copies in at least two physically separate, secure locations.</li><li><strong style="color:var(--white)">Add a passphrase (25th word):</strong> Most hardware wallets support an optional passphrase. Even if your 24 words are compromised, without the passphrase the wallet is inaccessible.</li><li><strong style="color:var(--white)">Never photograph it:</strong> Phone cameras often automatically sync to cloud services.</li><li><strong style="color:var(--white)">Test your backup:</strong> Periodically verify your backup is readable and complete by restoring to a new device.</li><li><strong style="color:var(--white)">Plan for inheritance:</strong> Ensure a trusted person knows how to access your backup if you are incapacitated.</li></ul><h3>If Your Backup Is Damaged or Incomplete</h3><p>If your physical backup has been damaged or you discover it is missing words, contact Aegis Recourse immediately. Our cryptographic recovery team specializes in reconstructing damaged or incomplete seed phrases.</p><div class="modal-cta"><a href="#recover" onclick="closeModal()" class="btn-primary">Recovery Consultation</a><a href="https://wa.me/15857592760" target="_blank" class="btn-ghost">WhatsApp Us →</a></div>`},article4:{icon:'💱',title:'3 Major Exchange Failures of 2026 and How Victims Recovered',sub:'When exchanges collapse, here is what actually works — March 2026',body:`<h3>Introduction</h3><p>Exchange failures remain one of the most devastating events in a crypto holder's experience. Unlike hacks, exchange collapses unfold over months or years, trapping funds in legal limbo. 2026 has already seen three significant exchange failures affecting over 400,000 users worldwide.</p><h3>Case Study 1: The Regulated Exchange Withdrawal Freeze</h3><p>In January 2026, a mid-size European exchange froze all withdrawals citing "compliance review." 67,000 users were unable to access approximately €340 million in combined holdings. Aegis Recourse represented over 1,200 of these clients, filing emergency applications to the relevant financial regulator and obtaining a court order. Over 89% of our represented clients recovered their funds within 8 weeks.</p><h3>Case Study 2: The Sudden Insolvency</h3><p>A Southeast Asian exchange ceased operations in February 2026 with no advance warning. Our team immediately registered proofs of claim, secured our clients' positions as priority creditors, and participated in the administration process. Initial distributions of 55 cents on the dollar have begun, significantly above the uncounseled average of 31 cents.</p><h3>Case Study 3: The Regulatory Shutdown</h3><p>A large exchange had its operating license revoked in March 2026. Client funds were frozen pending regulatory resolution. Our legal team secured interim injunctions preventing dissipation of assets and is negotiating a client fund distribution framework with the appointed administrator.</p><h3>Lessons From 2026 Exchange Failures</h3><ul><li>Act immediately — the first creditors to register claims receive the highest priority</li><li>Secure documentation of all deposits and balances before the exchange becomes inaccessible</li><li>Do not accept early settlement offers without legal counsel</li><li>Never keep more on an exchange than you can afford to lose in the short term</li></ul><div class="modal-cta"><a href="#recover" onclick="closeModal()" class="btn-primary">Exchange Recovery Consultation</a><a href="https://wa.me/15857592760" target="_blank" class="btn-ghost">WhatsApp Us →</a></div>`},article5:{icon:'🕵️',title:'Blockchain Forensics 101: How We Trace Stolen Crypto',sub:'A behind-the-scenes look at professional crypto tracing — March 2026',body:`<h3>What Is Blockchain Forensics?</h3><p>Blockchain forensics is the discipline of analyzing public blockchain data to track the movement of cryptocurrency, identify wallet owners, and reconstruct transaction histories. Because all blockchain transactions are permanently recorded and publicly visible, stolen crypto can often be traced — even when attackers believe they have covered their tracks.</p><h3>The Anatomy of a Crypto Theft Investigation</h3><p><strong style="color:var(--white)">Step 1 — Transaction Graph Analysis:</strong> We map all transactions from the victim's wallet after the theft event, building a complete graph showing where funds moved and when.</p><p><strong style="color:var(--white)">Step 2 — Cluster Analysis:</strong> We identify wallet clusters — groups of addresses controlled by the same entity — using co-spending patterns, peel chain analysis, and behavioral fingerprinting.</p><p><strong style="color:var(--white)">Step 3 — Exchange & Service Identification:</strong> We monitor identified wallet clusters for deposits at known exchanges using our database of over 50 million tagged blockchain addresses.</p><p><strong style="color:var(--white)">Step 4 — Legal Action:</strong> Once funds reach an exchange, we file emergency freeze requests with full forensic documentation.</p><h3>Tracing Through Mixers and DeFi</h3><p>Sophisticated attackers use cryptocurrency mixers, privacy coins, and DeFi protocols to obscure fund flows. Modern forensic tools can probabilistically link inputs to outputs in many mixing scenarios, and DeFi smart contracts leave detailed on-chain footprints that skilled analysts can interpret.</p><h3>Our Toolset</h3><ul><li>Chainalysis Reactor — industry-standard blockchain analytics platform</li><li>TRM Labs — real-time risk assessment and transaction monitoring</li><li>Elliptic Investigator — deep blockchain investigation and visualization</li><li>Proprietary Aegis Graph Engine — custom multi-chain analysis framework</li></ul><div class="modal-cta"><a href="#recover" onclick="closeModal()" class="btn-primary">Start Forensic Investigation</a><a href="https://wa.me/15857592760" target="_blank" class="btn-ghost">WhatsApp Us →</a></div>`},article6:{icon:'📊',title:'Crypto Crime Report 2026: $14.4 Billion Stolen',sub:'Annual analysis of global crypto crime trends — March 10, 2026',body:`<h3>2026 Crypto Crime at a Glance</h3><p>Total cryptocurrency-related crime reached an estimated $14.4 billion in the first two months of 2026, placing the year on track to surpass 2024 as the worst year on record for crypto theft. The data reflects a maturing criminal ecosystem that has adapted rapidly to improved security measures.</p><h3>Key Statistics</h3><ul><li>$14.4B in total crypto crime losses (annualized projection, 2026)</li><li>DeFi exploits: 43% of total losses ($6.2B)</li><li>Exchange hacks: 22% of total losses ($3.2B)</li><li>Wallet theft and phishing: 19% of total losses ($2.7B)</li><li>AI-powered attacks: involved in 34% of all phishing cases</li><li>Average loss per victim: $31,400</li></ul><h3>Dominant Threat Vectors in 2026</h3><p><strong style="color:var(--white)">Smart Contract Vulnerabilities:</strong> Flash loan attacks, reentrancy exploits, and oracle manipulation continue to drain DeFi protocols with increasing sophistication.</p><p><strong style="color:var(--white)">AI-Enhanced Social Engineering:</strong> The barrier to executing convincing phishing campaigns has effectively collapsed with the widespread availability of powerful LLMs.</p><p><strong style="color:var(--white)">Supply Chain Attacks:</strong> Malicious code inserted into widely-used open-source crypto libraries has affected millions of users. Three significant supply chain attacks were identified in Q1 2026 alone.</p><h3>Recommendations for 2026</h3><ul><li>Maintain the majority of holdings in cold storage with hardware wallet protection</li><li>Limit DeFi protocol exposure — only interact with audited, established protocols</li><li>Use phishing-resistant FIDO2 hardware keys for all exchange 2FA</li><li>Regularly audit wallet approvals and revoke unnecessary smart contract permissions</li></ul><div class="modal-cta"><a href="#recover" onclick="closeModal()" class="btn-primary">Protect Your Assets</a><a href="https://wa.me/15857592760" target="_blank" class="btn-ghost">Consult Our Team →</a></div>`},'all-articles':{icon:'📚',title:'All Security Articles — 2026',sub:'The complete Aegis Recourse Knowledge Centre',body:`<h3>March 2026</h3><p><a href="javascript:void(0)" onclick="openModal('article6')" style="color:var(--white)">Crypto Crime Report 2026: $14.4 Billion Stolen</a> <span style="color:var(--slate);font-size:0.82rem"> — Industry Report · 15 min</span></p><p><a href="javascript:void(0)" onclick="openModal('article5')" style="color:var(--white)">Blockchain Forensics 101: How We Trace Stolen Crypto</a> <span style="color:var(--slate);font-size:0.82rem"> — Forensics · 12 min</span></p><p><a href="javascript:void(0)" onclick="openModal('article4')" style="color:var(--white)">3 Major Exchange Failures of 2026 and How Victims Recovered</a> <span style="color:var(--slate);font-size:0.82rem"> — Exchange Security · 9 min</span></p><h3>February 2026</h3><p><a href="javascript:void(0)" onclick="openModal('article3')" style="color:var(--white)">How to Protect Your Seed Phrase: The 2026 Security Checklist</a> <span style="color:var(--slate);font-size:0.82rem"> — Recovery Guide · 10 min</span></p><p><a href="javascript:void(0)" onclick="openModal('article2')" style="color:var(--white)">AI-Powered Phishing Attacks Are Stealing Crypto at Record Rates</a> <span style="color:var(--slate);font-size:0.82rem"> — Threat Intelligence · 6 min</span></p><h3>January 2026</h3><p><a href="javascript:void(0)" onclick="openModal('article1')" style="color:var(--white)">The 2026 Hardware Wallet Vulnerability Report</a> <span style="color:var(--slate);font-size:0.82rem"> — Wallet Security · 8 min</span></p><h3>December 2025</h3><p style="color:var(--white)">Year in Review: The Biggest Crypto Hacks of 2025 <span style="color:var(--slate);font-size:0.82rem"> — Annual Review · 18 min</span></p><p style="color:var(--white)">The Complete Guide to Crypto Inheritance Planning <span style="color:var(--slate);font-size:0.82rem"> — Legal Guide · 14 min</span></p><p style="color:var(--white)">How North Korean Hackers Stole $3.8 Billion in Crypto <span style="color:var(--slate);font-size:0.82rem"> — Threat Intelligence · 10 min</span></p><div class="modal-cta"><a href="#recover" onclick="closeModal()" class="btn-primary">Free Security Consultation</a></div>`},privacy:{icon:'🔒',title:'Privacy Policy',sub:'How Aegis Recourse handles your personal data',body:`<h3>Data We Collect</h3><p>We collect only information necessary to assess and execute your recovery case: name, contact details, case description, and relevant technical information about lost assets. We do not collect, store, or request private keys or seed phrases.</p><h3>How We Use Your Data</h3><p>Your data is used exclusively for the purpose of providing recovery services and communicating with you about your case. We do not sell, rent, or share your personal data with third parties, except as required by law.</p><h3>Data Security</h3><p>All client data is stored in ISO 27001 certified infrastructure with AES-256 encryption at rest and TLS 1.3 in transit.</p><h3>Contact</h3><p>For privacy inquiries: <a href="mailto:recover@aegisrecourse.org" style="color:var(--accent-2)">recover@aegisrecourse.org</a></p>`},terms:{icon:'📜',title:'Terms of Service',sub:'Aegis Recourse client engagement terms',body:`<h3>Service Engagement</h3><p>Aegis Recourse provides professional crypto and digital asset recovery services. Engagement begins upon submission of a signed service agreement following the free consultation. All services are subject to a formal case assessment before work commences.</p><h3>Fees & Payment</h3><p>All fees are disclosed in full in the service agreement before any billable work begins. Success-based fee structures are available for qualifying cases.</p><h3>No Guarantee of Recovery</h3><p>While our track record demonstrates exceptional success, Aegis Recourse cannot guarantee recovery in every case. We provide honest probability assessments and only accept cases where we believe recovery is reasonably feasible.</p><h3>Confidentiality</h3><p>All engagements are governed by mutual non-disclosure agreements. Aegis Recourse will not publicly disclose case details without client consent.</p><h3>Contact</h3><p>For legal inquiries: <a href="mailto:recover@aegisrecourse.org" style="color:var(--accent-2)">recover@aegisrecourse.org</a></p>`}};
+
+function openModal(k){const d=MODALS[k];if(!d)return;document.getElementById('modalHd').innerHTML=`<span class="modal-hd-icon">${d.icon}</span><h2>${d.title}</h2><p class="modal-sub">${d.sub}</p>`;document.getElementById('modalBd').innerHTML=d.body;document.getElementById('modalOverlay').classList.add('open');document.body.style.overflow='hidden'}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('open');document.body.style.overflow=''}
+function overlayClose(e){if(e.target===document.getElementById('modalOverlay'))closeModal()}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+function submitRecovery(){
+  const fn=document.getElementById('firstName').value.trim(),ln=document.getElementById('lastName').value.trim(),em=document.getElementById('email').value.trim(),ph=document.getElementById('phone').value.trim(),rt=document.getElementById('recoveryType').value,am=document.getElementById('amount').value.trim(),at=document.getElementById('assetType').value,ds=document.getElementById('description').value.trim();
+  if(!fn||!em||!rt||!ds){alert('Please fill in all required fields: First Name, Email, Recovery Type, and Description.');return}
+  const msg=encodeURIComponent(`🔐 *NEW RECOVERY REQUEST — AEGIS RECOURSE*\n\n*Name:* ${fn} ${ln}\n*Email:* ${em}\n*Phone:* ${ph||'Not provided'}\n*Recovery Type:* ${rt}\n*Asset Type:* ${at||'Not specified'}\n*Amount Lost:* ${am||'Not specified'}\n\n*Description:*\n${ds}\n\n_Submitted via aegisrecourse.org_`);
+  window.open(`https://wa.me/15857592760?text=${msg}`,'_blank');
+  const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),5000);
+  ['firstName','lastName','email','phone','amount','description'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('recoveryType').value='';document.getElementById('assetType').value='';
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const h=a.getAttribute('href');if(h==='#')return;const t=document.querySelector(h);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
+</script>
+
+</body>
+</html>
