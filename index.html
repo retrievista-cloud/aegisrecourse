@@ -236,27 +236,33 @@ footer{background:var(--navy);border-top:1px solid rgba(201,168,76,0.15);padding
 }
 </style>
 
-<style>
-.goog-te-banner-frame{display:none!important;}
-.goog-te-menu-value:hover{text-decoration:none!important;}
-body{top:0!important;}
-#google_translate_element{display:inline-flex;align-items:center;}
-.goog-te-gadget{font-family:'DM Sans',sans-serif!important;font-size:0!important;color:transparent!important;}
-.goog-te-gadget .goog-te-combo{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.3);border-radius:4px;color:var(--white);padding:6px 10px;font-size:0.78rem;font-family:'DM Sans',sans-serif;cursor:pointer;outline:none;transition:all 0.2s;}
-.goog-te-gadget .goog-te-combo:hover{border-color:var(--gold);background:rgba(201,168,76,0.15);}
-.goog-te-gadget .goog-te-combo option{background:#111827;color:#F4F6FA;}
-</style>
-<!-- Google Translate -->
-<script type="text/javascript">
-function googleTranslateElementInit(){
-  new google.translate.TranslateElement({
-    pageLanguage:'en',
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-    autoDisplay: false
-  },'google_translate_element');
-}
-</script>
+
+
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<style>
+/* Google Translate */
+.goog-te-banner-frame{display:none!important;}
+body{top:0!important;}
+.goog-te-gadget{font-size:0!important;}
+.goog-te-gadget .goog-te-combo{
+  background:rgba(201,168,76,0.08);
+  border:1px solid rgba(201,168,76,0.3);
+  border-radius:4px;
+  color:#F4F6FA;
+  padding:7px 12px;
+  font-size:0.78rem;
+  font-family:'DM Sans',sans-serif;
+  cursor:pointer;
+  outline:none;
+  appearance:auto;
+  -webkit-appearance:auto;
+  max-height:200px;
+  overflow-y:auto;
+}
+.goog-te-gadget .goog-te-combo:hover{border-color:#C9A84C;}
+.goog-te-gadget .goog-te-combo:focus{border-color:#C9A84C;}
+</style>
 </head>
 <body>
 
@@ -290,7 +296,8 @@ function googleTranslateElementInit(){
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         Contact
       </a>
-      <div id="google_translate_element"></div>
+      
+      <div id="google_translate_element" style="display:inline-flex;align-items:center;"></div>
       <a href="#form-section" class="nav-cta">Start Recovery</a>
     </nav>
     <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
@@ -1108,5 +1115,17 @@ document.querySelectorAll('.svc-card,.step,.acard,.tcard').forEach(function(el){
   el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity 0.6s ease, transform 0.6s ease';obs.observe(el);
 });
 </script>
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({
+    pageLanguage:'en',
+    includedLanguages:'en,es,fr,de,it,pt,ru,zh-CN,zh-TW,ja,ko,ar,hi,tr,nl,pl,sv,da,fi,no,el,he,id,ms,th,vi,uk,cs,ro,hu,bg',
+    layout:google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay:false
+  },'google_translate_element');
+}
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
